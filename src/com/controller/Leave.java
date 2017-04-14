@@ -37,13 +37,13 @@ public class Leave extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	
-		  String start_date = request.getParameter("sdate");
-	        String end_date = request.getParameter("enddate");
+		  String start_date = request.getParameter("sdate").toString();
+	        String end_date = request.getParameter("enddate").toString();
 	        String reason=request.getParameter("reason");
 	        PrintWriter out=response.getWriter();
 	       
 	        
-	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 	        Date startDate = null;
 	        Date endDate=null;
 			try {
@@ -80,16 +80,19 @@ public class Leave extends HttpServlet {
                 
             }
 				   out.println(m_id);
-				    String sql = "INSERT INTO leave values (?,?,?,?,?)";
+				    String sql = "INSERT INTO leave values (?,?,?,?,?,?)";
 		            PreparedStatement statement = conn.prepareStatement(sql);
 		          
 		           // statement.setDate(1, new java.sql.Date(startDate.getTime()));  
 		           // statement.setDate(2, new java.sql.Date(endDate.getTime()) ); 
 		            statement.setDate(1, s_Date);
 		            statement.setDate(2, e_Date);
-		            statement.setInt(3, m_id);
+		            statement.setInt(3, id);
+		            out.println("after id");
 		            statement.setString(4, reason);
-		            statement.setString(5, null);
+		            statement.setInt(5, m_id);
+		            out.println("after manager id");
+		            statement.setString(6, "pending");
 		            out.println("before execute update");
 		            int row = statement.executeUpdate();
 			           out.println("row number"+row);
