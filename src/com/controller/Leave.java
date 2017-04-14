@@ -80,6 +80,7 @@ public class Leave extends HttpServlet {
                 
             }
 				   out.println(m_id);
+				   /*
 				    String sql = "INSERT INTO leave values (?,?,?,?,?,?)";
 		            PreparedStatement statement = conn.prepareStatement(sql);
 		          
@@ -91,9 +92,16 @@ public class Leave extends HttpServlet {
 		            out.println("after id");
 		            statement.setString(4, reason);
 		            statement.setInt(5, m_id);
-		            out.println("after manager id");
+		          
 		            statement.setString(6, "pending");
-		            out.println("before execute update");
+		            out.println("before execute update"); 
+		             */ 
+				   String sql = "INSERT INTO leave2 values (?,?)";
+		            PreparedStatement statement = conn.prepareStatement(sql);
+				   
+		          
+		            statement.setDate(1, s_Date);
+		            statement.setDate(2, e_Date);
 		            int row = statement.executeUpdate();
 			           out.println("row number"+row);
 			            if (row > 0) 
