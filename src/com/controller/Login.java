@@ -74,7 +74,7 @@ public class Login extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/admin_home.jsp");
                         break;
                     case "manager":
-                        response.sendRedirect(request.getContextPath() + "/manager_home.jsp");
+                        response.sendRedirect(request.getContextPath() + "/user_home.jsp");
                         break;
                     default:
                         request.setAttribute("errormsg", "Invalid Credentials");

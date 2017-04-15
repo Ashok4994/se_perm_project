@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.sql.Blob"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="com.controller.User"%>
+<%@ page import="com.admin.Connect_db" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -155,6 +163,9 @@
              
                 </div> 
              <hr>
+             <br>
+             <br>
+             
  <div class="container">
            <form method="post" action="Upload" enctype="multipart/form-data">
             <center>
@@ -178,8 +189,70 @@
                 </table>
             </center>
         </form>
+        </div>
+        <% 
+        HttpSession session1=request.getSession();
+        Integer id = (Integer) session1.getAttribute("user_id");
+        User u =new User(id);
+        int m_id=(Integer)u.getMid();
+        %>  <br>
+        <br>
+        
+        <h2> Leave Requests </h2>
+         <div class="container">
+       <table class='table table-striped'>
+            <thead> 
+			<tr>
+              <th>Start Date</th> 
+			    <th>End Date</th>  
+				 <th>Reason</th>
+				  <th>Employee ID</th>
+				   <th>Status</th>
+              </tr>			   
+            </thead>
+                <tbody>
+                    
+                    <% 
+					 try
+                        {
+					Statement stmt = Connect_db.getConnection().createStatement();
+					String sqlString = "SELECT * FROM leave2 where man_id=+"+id+"";
+					//String sqlString = "SELECT * FROM leave2";
+                    ResultSet rs = stmt.executeQuery(sqlString);
+                       
+                                
+                                while(rs.next())
+                                {   
+                            %>
+                            
+                                    <tr>
+                                      <td><%out.print( rs.getString("startdate"));%></td>  
+									 <td><% out.print(rs.getString("enddate"));%></td>  
+										<td><% out.print(rs.getString("reason"));%></td>
+										<td><%out.print(rs.getInt("emp_id"));%></td>
+										<td><% out.print(rs.getString("status"));%></td>
+								 </tr>
+                            <%
+                                 } %>
+                                 </tbody>
+                                 </table>
+                                 <% 
+                                 }catch (Exception e) {
+                                  System.err.println(e);
+                                  }
+                            %> 
+                            
+                </tbody> 
+        </table>
         
         </div>
+        
+        
+        
+        
+        
+        
+        
           <!-- jquery-->
         <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
 

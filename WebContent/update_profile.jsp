@@ -60,7 +60,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ">
-                            <form class='form-horizontal' method='POST' action="AdminActions">
+                            <form class='form-horizontal' method='POST' action="<%= request.getContextPath()%>/AdminUpdate">
                                 <fieldset>
                                  <% HttpSession session1=request.getSession();
                                  Integer uid=(Integer)session1.getAttribute("user_id");%>

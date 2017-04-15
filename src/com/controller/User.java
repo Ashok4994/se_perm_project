@@ -21,7 +21,7 @@ public class User {
     private Integer userid;
     private String role;
     private String status;
-    private String mid;
+    private Integer mid;
 
     public User(Integer userid) {
 
@@ -40,7 +40,7 @@ public class User {
                 this.userid = rs.getInt("userid");
                 this.role = rs.getString("role");
                 this.status=rs.getString("status");
-                this.mid=rs.getString("mid");
+                this.mid=rs.getInt("mid");
             }
             //con.close();
 
@@ -112,10 +112,10 @@ public class User {
         return status;
     }
 
-    public void setMid(String mid) {
+    public void setMid(Integer mid) {
         this.mid = mid;
     }
-    public String getMid() {
+    public Integer getMid() {
         return mid;
     }
     
