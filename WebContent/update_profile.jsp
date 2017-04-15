@@ -21,17 +21,17 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <!-- Custom CSS -->
    
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!-- Home page CSS -->
-        <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="css/admin.css">
 
         <!-- People page styles CSS -->
-        <link rel="stylesheet" href="../css/people.css">
+        <link rel="stylesheet" href="css/people.css">
     </head>
     <body>
        
@@ -60,15 +60,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ">
-                            <form class='form-horizontal' method='POST' action="<%= request.getContextPath()%>/AdminActions">
+                            <form class='form-horizontal' method='POST' action="AdminActions">
                                 <fieldset>
-
+                                 <% HttpSession session1=request.getSession();
+                                 Integer uid=(Integer)session1.getAttribute("user_id");%>
                                     <!-- Form Name -->
-                                    <h3>Edit User Profile <%=request.getParameter("uid")%></h3>
+                                    <h3>Edit User Profile <%=uid%></h3>
                                     <!-- Text input-->
                                     <hr>
                                     <%
-                                        Integer uid = Integer.parseInt(request.getParameter("uid"));
+                                      
                                         out.println(uid);
                                         //out.println(request.getParameter("action"));
 
@@ -79,7 +80,7 @@
                                         <label class="col-md-4 control-label" for="name">First Name</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="name" name="name" placeholder="" class="form-control" value="<%= u.getfirstName()%>" type="text">
+                                                <input id="name" name="fname" placeholder="" class="form-control" value="<%= u.getfirstName()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +89,7 @@
                                         <label class="col-md-4 control-label" for="name">Last Name</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="name" name="name" placeholder="" class="form-control" value="<%= u.getlastName()%>" type="text">
+                                                <input id="name" name="lname" placeholder="" class="form-control" value="<%= u.getlastName()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +98,7 @@
                                         <label class="col-md-4 control-label" for="name">Address</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="name" name="name" placeholder="" class="form-control" value="<%= u.getAddress()%>" type="text">
+                                                <input id="name" name="address" placeholder="" class="form-control" value="<%= u.getAddress()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -140,28 +141,12 @@
                                         <label class="col-md-4 control-label" for="role">Role</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="role" name="role" placeholder="" class="form-control input-md" value="<%= u.getRole()%>" type="text">
+                                                <input id="role" name="role" placeholder="" class="form-control input-md" value="<%= u.getRole()%>" type="text" readonly="true">
                                             </div>
                                         </div>
                                     </div>
-                                     <!-- Status-->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="role">Status</label>  
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <input id="role" name="role" placeholder="" class="form-control input-md" value="<%= u.getStatus()%>" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-                                     <!-- Manager ID-->
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="role">Manager ID</label>  
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <input id="role" name="role" placeholder="" class="form-control input-md" value="<%= u.getMid()%>" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
+                                   
 
                                     <!-- Text input-->
                                     <div class="form-group">

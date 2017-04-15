@@ -43,11 +43,11 @@ public class Leave extends HttpServlet {
 	        PrintWriter out=response.getWriter();
 	       
 	        
-	        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	        Date startDate = null;
 	        Date endDate=null;
 			try {
-				out.print("inside date try block");
+			  //	out.print("inside date try block");
 				startDate = sdf.parse(start_date);
 			    endDate=sdf.parse(end_date);
 			} catch (ParseException e1) {
@@ -58,7 +58,7 @@ public class Leave extends HttpServlet {
 			java.sql.Date s_Date = new java.sql.Date(startDate.getTime());
 			java.sql.Date e_Date = new java.sql.Date(endDate.getTime());
 			
-	       out.println("outside data try block");
+	       //out.println("outside data try block");
 	        HttpSession session=request.getSession(); 
 	        int m_id=0;
 	        Integer id=(Integer) session.getAttribute("user_id");
@@ -79,7 +79,7 @@ public class Leave extends HttpServlet {
                 m_id = rs1.getInt("mid");
                 
             }
-				   out.println(m_id);
+				   //out.println(m_id);
 				   /*
 				    String sql = "INSERT INTO leave values (?,?,?,?,?,?)";
 		            PreparedStatement statement = conn.prepareStatement(sql);
@@ -96,14 +96,19 @@ public class Leave extends HttpServlet {
 		            statement.setString(6, "pending");
 		            out.println("before execute update"); 
 		             */ 
-				   String sql = "INSERT INTO leave2 values (?,?)";
+				   String sql = "INSERT INTO leave2 values (?,?,?,?,?,?)";
 		            PreparedStatement statement = conn.prepareStatement(sql);
 				   
 		          
 		            statement.setDate(1, s_Date);
 		            statement.setDate(2, e_Date);
+		            statement.setString(3,reason);
+		            statement.setInt(4, id);
+		            statement.setInt(5, m_id);
+		            statement.setString(6,"pending");
+		            //out.println("before execute");
 		            int row = statement.executeUpdate();
-			           out.println("row number"+row);
+			          //out.println("row number"+row);
 			            if (row > 0) 
 			            {
 			                //out.println("File uploaded!!!");

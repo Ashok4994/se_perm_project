@@ -28,7 +28,7 @@ public class User {
         try {
 
             Statement stmt = Connect_db.getConnection().createStatement();
-            ResultSet rs = stmt.executeQuery("select * from register where userid ='" + userid + "'");
+            ResultSet rs = stmt.executeQuery("select * from employee where userid ='" + userid + "'");
 
             while (rs.next()) {
                 //out.println(rs.getInt(1) + "  " + rs.getString("first_name") + "  " + rs.getString("last_name") + "  " + rs.getString("email") + "  " + rs.getString("userid") + "  " + rs.getString("password"));
