@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AdminUpdate
  */
-@WebServlet("/AdminUpdate")
-public class AdminUpdate extends HttpServlet {
+@WebServlet("/UserUpdate")
+public class UserUpdate extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -97,24 +97,20 @@ public class AdminUpdate extends HttpServlet {
 			// out.println(request.getParameter("email-id").trim());
 			// out.println(request.getParameter("userid").trim());
 			// out.println(request.getParameter("gender").trim());
-			out.println(request.getParameter("mid"));
+			// out.println(request.getParameter("role").trim());
 
 			Statement stmt = Connect_db.getConnection().createStatement();
 			out.print("Before sql");
-
 			String sql = "update employee " + "set firstname= '" + request.getParameter("fname").trim() + "',"
 					+ "lastname= '" + request.getParameter("lname") + "'," + "address= '"
 					+ request.getParameter("address").trim() + "', " + "phone='"
 					+ request.getParameter("mobile_number").trim() + "', " + "email='"
-					+ request.getParameter("email_id").trim() + "'," + "role='" + request.getParameter("role").trim()
-					+ "'," + "status='" + request.getParameter("status").trim() + "'," + "mid="
-					+ request.getParameter("mid") + " " + "where userid= " + request.getParameter("userid").trim();
-
+					+ request.getParameter("email_id").trim() + "'" + "where userid= "
+					+ request.getParameter("userid").trim();
 			out.print("before execute");
 			int count = stmt.executeUpdate(sql);
-			out.print(count);
 			if (count > 0) {
-				RequestDispatcher rd = request.getRequestDispatcher("people.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("user_home.jsp");
 				rd.forward(request, response);
 			}
 			/**

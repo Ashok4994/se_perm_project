@@ -60,7 +60,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ">
-                            <form class='form-horizontal' method='POST' action="<%= request.getContextPath()%>/AdminActions">
+                            <form class='form-horizontal' method='POST' action="<%= request.getContextPath()%>/AdminUpdate">
                                 <fieldset>
 
                                     <!-- Form Name -->
@@ -79,7 +79,7 @@
                                         <label class="col-md-4 control-label" for="name">First Name</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="name" name="name" placeholder="" class="form-control" value="<%= u.getfirstName()%>" type="text">
+                                                <input id="fname" name="fname" placeholder="" class="form-control" value="<%= u.getfirstName()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                                         <label class="col-md-4 control-label" for="name">Last Name</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="name" name="name" placeholder="" class="form-control" value="<%= u.getlastName()%>" type="text">
+                                                <input id="lname" name="lname" placeholder="" class="form-control" value="<%= u.getlastName()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                                         <label class="col-md-4 control-label" for="name">Address</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="name" name="name" placeholder="" class="form-control" value="<%= u.getAddress()%>" type="text">
+                                                <input id="name" name="address" placeholder="" class="form-control" value="<%= u.getAddress()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                                         <label class="col-md-4 control-label" for="email_id">Email ID</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="email-id" name="email-id" placeholder="" class="form-control input-md" value="<%= u.getEmailid()%>" type="text">
+                                                <input id="email-id" name="email_id" placeholder="" class="form-control input-md" value="<%= u.getEmailid()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                         <label class="col-md-4 control-label" for="role">Status</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="role" name="role" placeholder="" class="form-control input-md" value="<%= u.getStatus()%>" type="text">
+                                                <input id="role" name="status" placeholder="" class="form-control input-md" value="<%= u.getStatus()%>" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                         <label class="col-md-4 control-label" for="role">Manager ID</label>  
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <input id="role" name="role" placeholder="" class="form-control input-md" value="<%= u.getMid()%>" type="text">
+                                                <input id="role" name="mid" placeholder="" class="form-control input-md" value="<%=u.getMid() %>" type="text">
                                             </div>
                                         </div>
                                     </div>
