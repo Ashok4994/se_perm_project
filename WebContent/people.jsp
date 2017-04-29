@@ -37,7 +37,7 @@
     </head>
     <body>
        
-      
+       <jsp:include page="navigation.jsp" />
         <!-- Add your site or application content here -->
         <div class="wrapper">
 

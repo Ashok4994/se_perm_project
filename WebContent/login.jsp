@@ -67,7 +67,7 @@
                 </form>
 
                 <div class="Reg-ForgotP">
-                    <a href="register.jsp">New User? Click here to register.</a>
+                    <a href="register2.jsp">New User? Click here to register.</a>
                     <br>
                     <a href="#">Forgot Password?</a>
                 </div>

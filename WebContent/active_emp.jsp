@@ -23,7 +23,7 @@
     try {
         Statement stmt = Connect_db.getConnection().createStatement();
         
-        ResultSet rs = stmt.executeQuery("select * from employee");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM employee where status='active';");
 
         writer.print("<table class='table table-bordered'>"
                 + "<thead>"
@@ -37,11 +37,6 @@
                 + "<th>Userid</th>"
                 + "<th>Role</th>"
                 + "<th>Status</th>"
-                + "<th>ManagerID</th>"
-                + "<th>LevelID</th>"
-                + "<th>TeamID</th>"
-                + "<th>Edit</th>"
-                + "<th>Delete</th>"
                 + "</tr>"
                 + "</thead>"
                 + "<tbody>");
@@ -57,11 +52,6 @@
                     + "</td><td>" + rs.getString("userid")
                     + "</td><td>" + rs.getString("role")
                     + "</td><td>" + rs.getString("status")
-                    + "</td><td>" + rs.getString("mid")
-                    + "</td><td>" + rs.getString("levelid")
-                    + "</td><td>" + rs.getString("teamid")
-                    + "</td><td><a class='edit-link' href='" + request.getContextPath() + "/admin/admin-user-update.jsp?uid=" + rs.getString("userid").trim() + "&action=edit'>Edit</a>"
-                    + "</td><td><a class='delete-link' href='" + request.getContextPath() + "/AdminDeleteUser?userid=" + rs.getString("userid").trim() + "&action=delete'>Delete</a>"
             );
         }
 

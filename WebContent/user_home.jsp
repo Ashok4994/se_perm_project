@@ -53,6 +53,9 @@
 <!-- Switch Style CSS -->
 <link rel="stylesheet" href="css/switch-style.css">
 
+<!-- Page1 CSS -->
+<link rel="stylesheet" href="css/page1.css">
+
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/style.css">
 
@@ -105,219 +108,75 @@
 	</div>
 	</div>
 	</header>
-	<br>
-	<br>
-	<br>
-	<br>
-	<center>
-		<a href="leave_request.jsp"><input type="button"
-			value="Request a leave"> </a>
-	</center>
-	<br>
+<br>
+<br>
 
+	
 	<div class="container">
-		<div id="create-user" class="row">
-			<div class="widget widget-gray">
-				<!-- TYPE PANEL -->
-				<div class="widget-head">
-					<!-- HEAD PANEL -->
-					<h4 class="heading">
-						<i class="fa fa-briefcase"> </i> Request Leave
-					</h4>
-				</div>
-				<!-- /HEAD PANEL -->
-
-				<div class="widget-body" id="widget-body1">
-					<!-- CONTENT PANEL -->
-					<form class="form-horizontal" method="post" action="Leave">
-						<fieldset>
-							<!-- Form Name -->
-							<legend>Leave Request form</legend>
-
-							<!-- Text input-->
-							<div class="form-group">
-								<label class="col-md-4 control-label" for="gender">Start
-									Date</label>
-								<div class="col-md-4">
-									<input id="name" name="sdate" placeholder=""
-										class="form-control input-md" required="true" type="date">
-								</div>
-							</div>
-
-							<!-- Text input-->
-							<div class="form-group">
-								<label class="col-md-4 control-label" for="gender">End
-									Date</label>
-								<div class="col-md-4">
-									<input id="gender" name="enddate" placeholder=""
-										class="form-control input-md" required="true" type="date">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label" for="phone">Reason</label>
-								<div class="col-md-4">
-									<input id="phone" name="reason" placeholder=""
-										class="form-control input-md" required="true" type="text">
-								</div>
-							</div>
-
-
-
-
-
-
-							<!-- Button (Double) -->
-							<div class="form-group">
-								<label class="col-md-4 control-label" for="button1id"></label>
-								<div class="col-md-8">
-									<button id="button1id" name="button1id" class="btn btn-success">Submit</button>
-								</div>
-							</div>
-
-						</fieldset>
-					</form>
-
-				</div>
-				<!-- /CONTENT PANEL -->
-
-				<div class="widget-footer">
-					<!-- FOOTER PANEL-->
-					<!--<a href="#" class="fa fa-minus-circle fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-MINUS-CIRCLE"><i></i></a>-->
-					<!--<a href="#" class="fa fa-pencil fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-PENCIL"><i></i></a>-->
-					<!--<a href="#" class="fa fa-search fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-SEARCH"><i></i></a>-->
-					<!--<a href="#" class="fa fa-plus-circle fa-1x" data-toggle="tooltip" data-placement="right" title="" data-original-title="FA-PLUS-CIRCLE"><i></i></a>-->
-					<a href="#" id="toggle1" class="fa fa-chevron-down fa-1x"
-						data-toggle="tooltip" data-placement="right" title=""
-						data-original-title="FA-PLUS-CIRCLE"><i></i></a>
-				</div>
-				<!-- /FOOTER PANEL-->
-
-			</div>
-			<!-- /TYPE PANEL -->
-		</div>
-
-	</div>
-	<hr>
+	<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Leave <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+   <li role="presentation"><a href="leave_request.jsp">Request Leave</a></li>
+  <li role="presentation"><a href="leave_status.jsp">Leave status</a></li>
+   <li role="presentation"><a href="approve_leave.jsp">Approve Leave</a></li>
+      </ul>
+  </li>
+  <li role="files" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Files <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+   <li role="presentation"><a href="file_upload.jsp">Upload files</a></li>
+  <li role="presentation"><a href="view_files.jsp">View Files</a></li>
+  <li role="presentation"><a href="view_employees.jsp">View Employee Hierarchy</a></li>
+      </ul>
+  </li>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Directory <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+   <li role="presentation"><a href="create_dir.jsp">Create New Directory</a></li>
+  <li role="presentation"><a href="#">Change permissions</a></li>
+  <li role="presentation"><a href="view_dir.jsp">View Directories</a></li>
+      </ul>
+  </li>
+</ul>
+</div>
+	
 	<br>
-	<br>
-
+	
 	<div class="container">
-		<form method="post" action="Upload" enctype="multipart/form-data">
-			<center>
-				<table border="1" width="25%" cellpadding="5">
-					<thead>
-						<th colspan="3">Upload File</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Description :</td>
-							<td><input type="text" name="title" size="30"></td>
-						</tr>
-						<tr>
-							<td>Choose File :</td>
-							<td><input type="file" name="file_uploaded" /></td>
-						</tr>
-						<tr>
-							<td colspan="3"><input type="submit" value="Upload"></td>
-						</tr>
-					</tbody>
-				</table>
-			</center>
-		</form>
+	<ul class="nav nav-list">
+  <li class="nav-header">List header</li>
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Profile</a></li>
+  <li><a href="#">Directory</a></li>
+</ul>
+	
 	</div>
-	<%
-		HttpSession session1 = request.getSession();
-		Integer id = (Integer) session1.getAttribute("user_id");
-		User u = new User(id);
-		int m_id = (Integer) u.getMid();
-		String role = u.getRole();
-		if (role.equalsIgnoreCase("manager")) {
-	%>
-	<br>
-	<br>
+<br>
+<br>
 
-	<h2>Leave Requests</h2>
-	<div class="container">
-		<table class='table table-striped'>
-			<thead>
-				<tr>
-					<th>Start Date</th>
-					<th>End Date</th>
-					<th>Reason</th>
-					<th>Employee ID</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody>
+<center>
+<p>I'm a</p>
+<b>
+  <span1>
+    web developer<br /> 
+    css cowboy<br />
+    self-facilitating media node<br />
+    box inside a box<br />
+    part of the problem
+    </span1>
+</b>
 
-				<%
-					try {
-							Statement stmt = Connect_db.getConnection().createStatement();
-							String sqlString = "SELECT * FROM leave2 where man_id=+" + id + "";
-							//String sqlString = "SELECT * FROM leave2";
-							ResultSet rs = stmt.executeQuery(sqlString);
-
-							if (!rs.isBeforeFirst()) {
-				%>
-				<tr>
-					<td colspan="3"><center>
-							<%
-								out.print("No leave requests!");
-							%>
-						</center></td>
-				</tr>
-				<%
-					}
-
-							while (rs.next()) {
-				%>
-
-				<tr>
-					<td>
-						<%
-							out.print(rs.getString("startdate"));
-						%>
-					</td>
-					<td>
-						<%
-							out.print(rs.getString("enddate"));
-						%>
-					</td>
-					<td>
-						<%
-							out.print(rs.getString("reason"));
-						%>
-					</td>
-					<td>
-						<%
-							out.print(rs.getInt("emp_id"));
-						%>
-					</td>
-					<td>
-						<%
-							out.print(rs.getString("status"));
-						%>
-					</td>
-				</tr>
-				<%
-					}
-				%>
-			</tbody>
-		</table>
-		<%
-			} catch (Exception e) {
-					System.err.println(e);
-				}
-			}
-		%>
-
-		</tbody>
-		</table>
-
-	</div>
-
-
-
+</center>	
 
 
 
